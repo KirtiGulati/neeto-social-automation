@@ -41,6 +41,35 @@ for item in retired:  # each item is [post_id, "x"|"linkedin"] (a bare id means 
 json.dump(still,open("retired.json","w"))
 held=[e for e in plan if e.get("held")]
 plan=[e for e in plan if not e.get("held")]
+# guard (29 Oct 2026): before creating, reuse a post already scheduled in Buffer for the same changelog,
+# so a plan file that failed to save can never cause duplicate posts.
+import re as _re
+POSTS_Q="""query($org:OrganizationId!,$ch:[ChannelId!],$after:String){ posts(input:{organizationId:$org, filter:{status:[scheduled], channelIds:$ch}}, first:100, after:$after){ edges{ node{ id text dueAt } } pageInfo{ hasNextPage endCursor } } }"""
+def scheduled_posts(ch):
+    try:
+        org=gql("{ account { organizations { id } } }",None,ch)["data"]["account"]["organizations"][0]["id"]
+        out,after=[],None
+        while True:
+            p=gql(POSTS_Q,{"org":org,"ch":[CH[ch]],"after":after},ch)["data"]["posts"]
+            out+=[x["node"] for x in p["edges"]]
+            if not p["pageInfo"]["hasNextPage"]: return out
+            after=p["pageInfo"]["endCursor"]
+    except Exception as ex:
+        raise SystemExit("ERROR could not read scheduled posts from Buffer, so nothing was created: "+str(ex)[:150])
+def find_existing(e,ch,posts,used):
+    url=(e.get("url") or "").split("?")[0].rstrip("/")
+    if "/changelogs/" not in url: return None
+    pat=_re.compile(_re.escape("/changelogs/"+url.split("/")[-1])+r"(?=[?#/\s]|$)")
+    for p in posts:
+        if p["id"] not in used and pat.search(p.get("text") or ""): return p
+    return None
+EXISTING={"x":scheduled_posts("x")}; USED={e.get("x_id") for e in plan+held if e.get("x_id")}
+# restore any post the plan lost (e.g. a save that failed) before dates are worked out, keeping its Buffer date
+for e in plan:
+    if e.get("x_id") or e.get("x_skip"): continue
+    _ex=find_existing(e,"x",EXISTING["x"],USED)
+    if _ex:
+        e["x_id"]=_ex["id"]; e["x_at"]=_ex["dueAt"][:19]+"Z"; USED.add(_ex["id"]); print("ADOPTED existing Buffer post (no duplicate created):",e["key"],"x")
 # 1) re-assign dates
 def is_fixed(e): return parse(e["li_at"])<=now or e.get("pinned")
 fixed=[e for e in plan if is_fixed(e)]
@@ -94,6 +123,13 @@ for e in plan:
         if e.get("li_skip" if ch=="linkedin" else "x_skip"): continue   # already published by hand; never create
         if parse(e[atk])<now: print("PAST DUE, skipped:",e["key"],ch,e[atk]); continue
         if ch=="linkedin" and parse(e[atk])>now+dt.timedelta(days=LI_HORIZON_DAYS): continue   # leave shared queue room for other products
+        _ex=find_existing(e,ch,EXISTING[ch],USED)
+        if _ex:
+            e[idk]=_ex["id"]; USED.add(_ex["id"]); save(); print("ADOPTED existing Buffer post (no duplicate created):",e["key"],ch)
+            if (_ex.get("dueAt") or "")[:19]!=e[atk][:19]:
+                r=(gql(EDIT,{"input":{"id":_ex["id"],"text":e[ch],"dueAt":e[atk],"mode":"customScheduled","schedulingType":"automatic"}},ch).get("data") or {}).get("editPost") or {}
+                if not r.get("post"): print("EDIT FAILED",e["key"],ch,r.get("message"))
+            continue
         inp={"text":e[ch],"channelId":CH[ch],"schedulingType":"automatic","mode":"customScheduled","dueAt":e[atk],"assets":[{"image":{"url":e["image"]}}]}
         r=(gql(CREATE,{"input":inp},ch).get("data") or {}).get("createPost") or {}
         if r.get("post"): e[idk]=r["post"]["id"]; added+=1; save()

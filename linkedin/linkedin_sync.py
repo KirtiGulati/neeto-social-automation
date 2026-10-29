@@ -36,6 +36,34 @@ for pid in retired:
 json.dump(still,open("retired.json","w"))
 held=[e for e in plan if e.get("held")]
 plan=[e for e in plan if not e.get("held")]
+# guard (29 Oct 2026): before creating, reuse a post already scheduled in Buffer for the same changelog,
+# so a plan file that failed to save can never cause duplicate posts.
+import re as _re
+POSTS_Q="""query($org:OrganizationId!,$ch:[ChannelId!],$after:String){ posts(input:{organizationId:$org, filter:{status:[scheduled], channelIds:$ch}}, first:100, after:$after){ edges{ node{ id text dueAt } } pageInfo{ hasNextPage endCursor } } }"""
+def scheduled_posts():
+    try:
+        out,after=[],None
+        while True:
+            p=gql(POSTS_Q,{"org":ORG,"ch":[CH],"after":after})["data"]["posts"]
+            out+=[x["node"] for x in p["edges"]]
+            if not p["pageInfo"]["hasNextPage"]: return out
+            after=p["pageInfo"]["endCursor"]
+    except Exception as ex:
+        raise SystemExit("ERROR could not read scheduled posts from Buffer, so nothing was created: "+str(ex)[:150])
+def find_existing(e,ch,posts,used):
+    url=(e.get("url") or "").split("?")[0].rstrip("/")
+    if "/changelogs/" not in url: return None
+    pat=_re.compile(_re.escape("/changelogs/"+url.split("/")[-1])+r"(?=[?#/\s]|$)")
+    for p in posts:
+        if p["id"] not in used and pat.search(p.get("text") or ""): return p
+    return None
+EXISTING=scheduled_posts(); USED={e.get("li_id") for e in plan+held if e.get("li_id")}
+# restore any post the plan lost (e.g. a save that failed) before dates are worked out, keeping its Buffer date
+for e in plan:
+    if e.get("li_id"): continue
+    _ex=find_existing(e,None,EXISTING,USED)
+    if _ex:
+        e["li_id"]=_ex["id"]; e["li_at"]=_ex["dueAt"][:19]+"Z"; USED.add(_ex["id"]); print("ADOPTED existing Buffer post (no duplicate created):",e["key"])
 # 1) re-assign dates: one post per day
 def fixed(e): return parse(e["li_at"])<=now or e.get("pinned")
 taken={day_of(e["li_at"]) for e in plan if fixed(e) and e["li_at"][:4]!="2099"}
@@ -66,6 +94,13 @@ added=0
 for e in plan:
     if e.get("li_id"): continue
     if parse(e["li_at"])<now: print("PAST DUE, skipped:",e["key"],e["li_at"]); continue
+    _ex=find_existing(e,None,EXISTING,USED)
+    if _ex:
+        e["li_id"]=_ex["id"]; USED.add(_ex["id"]); save(); print("ADOPTED existing Buffer post (no duplicate created):",e["key"])
+        if (_ex.get("dueAt") or "")[:19]!=e["li_at"][:19]:
+            r=(gql(EDIT,{"input":{"id":_ex["id"],"text":e["linkedin"],"dueAt":e["li_at"],"mode":"customScheduled","schedulingType":"automatic"}}).get("data") or {}).get("editPost") or {}
+            if not r.get("post"): print("EDIT FAILED",e["key"],r.get("message"))
+        continue
     inp={"text":e["linkedin"],"channelId":CH,"schedulingType":"automatic","mode":"customScheduled","dueAt":e["li_at"],"assets":[{"image":{"url":e["image"]}}]}
     r=(gql(CREATE,{"input":inp}).get("data") or {}).get("createPost") or {}
     if r.get("post"): e["li_id"]=r["post"]["id"]; added+=1; save()
