@@ -191,6 +191,22 @@
   "x_at": "2026-11-03T12:30:00Z"
  },
  {
+  "key": "n20",
+  "title": "Charge a client's saved payment method",
+  "url": "https://engage.neetocal.com/changelogs/charge-a-client-s-saved-payment-method",
+  "image": "https://assets-cdn.neetoengage.com/rails/active_storage/blobs/proxy/eyJfcmFpbHMiOnsiZGF0YSI6ImNiMmM2YzRlLTM1ZGEtNDc2OS05ZDk5LTlkMWJjYzBlMGMyOSIsInB1ciI6ImJsb2JfaWQifX0=--a7f0968197ca8736e8e39e4fcd2e5bfcfb77d52d/charge-a-clients-saved-payment-method.png",
+  "x": "Booking a recurring series for a client who has paid you before? Charge their saved payment method for every session, no payment link to send, no chasing. Each session is charged before it starts.\n\nTo know more, read the changelog: https://engage.neetocal.com/changelogs/charge-a-client-s-saved-payment-method?utm_source=x&utm_medium=social&utm_campaign=charge-a-client-s-saved-payment-method",
+  "linkedin": "Now you can charge a client's saved payment method when booking a recurring series for them in NeetoCal.\n\nEach session, including the first, is charged automatically before it starts, so there is no payment link to send. The option appears on the payment step when the client has a payment method saved from an earlier Stripe payment.\n\nTo know more, read the changelog: https://engage.neetocal.com/changelogs/charge-a-client-s-saved-payment-method?utm_source=linkedin&utm_medium=social&utm_campaign=charge-a-client-s-saved-payment-method\n\n#BuildInPublic #SaaS #Scheduling",
+  "x_id": "6ae434f0ba1ca51fd3faf20f",
+  "li_id": null,
+  "group": "new",
+  "pinned": false,
+  "held": false,
+  "fast": true,
+  "li_at": "2026-11-03T05:30:00Z",
+  "x_at": "2026-11-04T12:30:00Z"
+ },
+ {
   "key": "n13",
   "title": "Override notifications for a scheduling link",
   "url": "https://engage.neetocal.com/changelogs/override-notifications-for-a-scheduling-link",
@@ -205,6 +221,38 @@
   "x_at": "2026-11-05T12:30:00Z"
  },
  {
+  "key": "n21",
+  "title": "Apply a discount when booking for a client",
+  "url": "https://engage.neetocal.com/changelogs/apply-a-discount-when-booking-for-a-client",
+  "image": "https://assets-cdn.neetoengage.com/rails/active_storage/blobs/proxy/eyJfcmFpbHMiOnsiZGF0YSI6IjJjZjBiNDFlLTM1N2QtNDA2My05OTk1LWI0ZDAzNTlhM2Y1ZCIsInB1ciI6ImJsb2JfaWQifX0=--48657fc1e1759312377e64e6dff622c98ee1c01f/apply-a-discount-when-booking-for-a-client.png",
+  "x": "Booking a paid meeting for a client with a discount code? Enter it on the payment step and the payment link you send already has it applied. The client pays the discounted amount, nothing to explain.\n\nTo know more, read the changelog: https://engage.neetocal.com/changelogs/apply-a-discount-when-booking-for-a-client?utm_source=x&utm_medium=social&utm_campaign=apply-a-discount-when-booking-for-a-client",
+  "linkedin": "NeetoCal now lets you apply a discount code when booking a paid meeting for a client.\n\nEnter the code on the payment step and the payment link you send opens with the discount already applied, so the client pays only the discounted amount. If the code covers the full fee, reserve the slot and the booking is confirmed right away.\n\nTo know more, read the changelog: https://engage.neetocal.com/changelogs/apply-a-discount-when-booking-for-a-client?utm_source=linkedin&utm_medium=social&utm_campaign=apply-a-discount-when-booking-for-a-client\n\n#BuildInPublic #SaaS #Scheduling",
+  "x_id": "6ae434f04b8768bfb2e20326",
+  "li_id": null,
+  "group": "new",
+  "pinned": false,
+  "held": false,
+  "fast": true,
+  "li_at": "2026-11-05T05:30:00Z",
+  "x_at": "2026-11-06T12:30:00Z"
+ },
+ {
+  "key": "n22",
+  "title": "Lists and subheadings on intro pages",
+  "url": "https://engage.neetocal.com/changelogs/lists-and-subheadings-on-intro-pages",
+  "image": "https://assets-cdn.neetoengage.com/rails/active_storage/blobs/proxy/eyJfcmFpbHMiOnsiZGF0YSI6IjRiZGNmNDE2LTRmNjktNDJkMC04ZWMwLTg5NDcyYmRkNDM0ZiIsInB1ciI6ImJsb2JfaWQifX0=--49e35d24d69ba2a492d153b102fd2f32e06c931f/lists-and-subheadings-on-intro-pages.png",
+  "x": "Intro page descriptions no longer have to be one block of text. Add bulleted or numbered lists, subheadings, underline and strikethrough. A new About us 6 layout gives longer text full width.\n\nTo know more, read the changelog: https://engage.neetocal.com/changelogs/lists-and-subheadings-on-intro-pages?utm_source=x&utm_medium=social&utm_campaign=lists-and-subheadings-on-intro-pages",
+  "linkedin": "Intro page section descriptions in NeetoCal now support lists, subheadings, underline and strikethrough.\n\nBreak a long description into bulleted or numbered points, or add a subheading so clients can scan what you offer. There is also a new About us 6 layout with no image, which gives the title and description the full width of the page for longer text.\n\nTo know more, read the changelog: https://engage.neetocal.com/changelogs/lists-and-subheadings-on-intro-pages?utm_source=linkedin&utm_medium=social&utm_campaign=lists-and-subheadings-on-intro-pages\n\n#BuildInPublic #SaaS #Scheduling",
+  "x_id": "6ae434f1ba1ca51fd3faf27d",
+  "li_id": null,
+  "group": "new",
+  "pinned": false,
+  "held": false,
+  "fast": true,
+  "li_at": "2026-11-06T05:30:00Z",
+  "x_at": "2026-11-07T12:30:00Z"
+ },
+ {
   "key": "n14",
   "title": "Customize approval and rejection emails",
   "url": "https://engage.neetocal.com/changelogs/customize-approval-and-rejection-emails",
@@ -217,6 +265,22 @@
   "pinned": false,
   "li_at": "2026-11-09T12:30:00Z",
   "x_at": "2026-11-10T12:30:00Z"
+ },
+ {
+  "key": "n23",
+  "title": "Send automations only to first-time clients",
+  "url": "https://engage.neetocal.com/changelogs/send-automations-only-to-first-time-clients",
+  "image": "https://assets-cdn.neetoengage.com/rails/active_storage/blobs/proxy/eyJfcmFpbHMiOnsiZGF0YSI6IjcxMWFlNTdhLTAxMjQtNGRjNC05OGM3LWU0MjY5ZWZmNGFkMiIsInB1ciI6ImJsb2JfaWQifX0=--6e16c11767e369a68ae9840698d7e93c895eb030/send-automations-only-to-first-time-clients.png",
+  "x": "Your regulars don't need a welcome email every time they book. NeetoCal automation rules can now send an email or SMS only to first-time clients, only to returning clients, or to both.\n\nTo know more, read the changelog: https://engage.neetocal.com/changelogs/send-automations-only-to-first-time-clients?utm_source=x&utm_medium=social&utm_campaign=send-automations-only-to-first-time-clients",
+  "linkedin": "You can now send a NeetoCal automation only to first-time clients.\n\nEach automation rule's email or SMS can go to first-time clients, returning clients, or both. A welcome email goes out after a client's first meeting, and regulars stop getting it every time they book. Existing rules keep sending to both.\n\nTo know more, read the changelog: https://engage.neetocal.com/changelogs/send-automations-only-to-first-time-clients?utm_source=linkedin&utm_medium=social&utm_campaign=send-automations-only-to-first-time-clients\n\n#BuildInPublic #SaaS #Scheduling",
+  "x_id": null,
+  "li_id": null,
+  "group": "new",
+  "pinned": false,
+  "held": false,
+  "fast": true,
+  "li_at": "2026-11-10T05:30:00Z",
+  "x_at": "2026-11-11T12:30:00Z"
  },
  {
   "key": "n15",

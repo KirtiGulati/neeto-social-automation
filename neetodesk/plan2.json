@@ -60,6 +60,38 @@
   "x_at": "2026-10-30T12:30:00Z"
  },
  {
+  "key": "n15",
+  "title": "NeetoEngage integration",
+  "url": "https://engage.neetodesk.com/changelogs/neetoengage-integration",
+  "image": "https://assets-cdn.neetoengage.com/rails/active_storage/blobs/proxy/eyJfcmFpbHMiOnsiZGF0YSI6IjBkYjhlNTljLTMwOWMtNDg2My05Yzc0LTE2MjRmZTE1YTEzMCIsInB1ciI6ImJsb2JfaWQifX0=--1a6acc9c68f17ae8241bd18cec73039d9beb5c72/neetoengage-integration.png",
+  "x": "Customer asks for a feature in a ticket? Add a private note starting with \"fr\" and NeetoDesk sends it to NeetoEngage as a new request or a vote, without leaving the ticket. Early access.\n\nTo know more, read the changelog: https://engage.neetodesk.com/changelogs/neetoengage-integration?utm_source=x&utm_medium=social&utm_campaign=neetoengage-integration",
+  "linkedin": "Feature requests from customers can now go from a NeetoDesk ticket straight to NeetoEngage.\n\nAdd a private note that starts with \"fr\" and the request becomes a new feature request or a vote on an existing one. The customer's name and email stay out of the public title and description and go in a private note. Now in early access.\n\nTo know more, read the changelog: https://engage.neetodesk.com/changelogs/neetoengage-integration?utm_source=linkedin&utm_medium=social&utm_campaign=neetoengage-integration\n\n#BuildInPublic #SaaS #CustomerSupport",
+  "x_id": "6ae4353a56e01b97638d3b29",
+  "li_id": null,
+  "group": "new",
+  "pinned": false,
+  "held": false,
+  "fast": true,
+  "li_at": "2026-10-30T07:30:00Z",
+  "x_at": "2026-10-31T12:30:00Z"
+ },
+ {
+  "key": "n16",
+  "title": "Cc people when creating a ticket",
+  "url": "https://engage.neetodesk.com/changelogs/cc-people-when-creating-a-ticket",
+  "image": "https://assets-cdn.neetoengage.com/rails/active_storage/blobs/proxy/eyJfcmFpbHMiOnsiZGF0YSI6IjY4MTEwYWNlLTFlNTEtNDJmZS1hMDFiLTU4MjY2NjY4ZWQwNCIsInB1ciI6ImJsb2JfaWQifX0=--b2f63a95fab3764a148ae876ed044b23e99bdf7b/cc-people-when-creating-a-ticket.png",
+  "x": "Creating a ticket for a customer and need to loop someone else in? Add them in Cc right on the new ticket form in NeetoDesk. No more creating the ticket first and adding Cc in your first reply.\n\nTo know more, read the changelog: https://engage.neetodesk.com/changelogs/cc-people-when-creating-a-ticket?utm_source=x&utm_medium=social&utm_campaign=cc-people-when-creating-a-ticket",
+  "linkedin": "Now you can add people in Cc while creating a ticket in NeetoDesk.\n\nThe new ticket form has a Cc field next to the customer's email. It suggests existing customers as you type and accepts any email address. Everyone you add stays on the ticket and gets your team's replies, starting with the first one.\n\nTo know more, read the changelog: https://engage.neetodesk.com/changelogs/cc-people-when-creating-a-ticket?utm_source=linkedin&utm_medium=social&utm_campaign=cc-people-when-creating-a-ticket\n\n#BuildInPublic #SaaS #CustomerSupport",
+  "x_id": null,
+  "li_id": null,
+  "group": "new",
+  "pinned": false,
+  "held": false,
+  "fast": true,
+  "li_at": "2026-11-02T07:30:00Z",
+  "x_at": "2026-11-03T12:30:00Z"
+ },
+ {
   "key": "n5",
   "published": "2026-10-09",
   "title": "IP restriction",
@@ -75,6 +107,22 @@
   "x_at": "2026-11-04T12:30:00Z"
  },
  {
+  "key": "n17",
+  "title": "Slack thread link on tickets",
+  "url": "https://engage.neetodesk.com/changelogs/slack-thread-link-on-tickets",
+  "image": "https://assets-cdn.neetoengage.com/rails/active_storage/blobs/proxy/eyJfcmFpbHMiOnsiZGF0YSI6IjExNjg0MTU4LTQ5M2QtNGUxMC1iZGRkLWZjMzMzNTc4NGNkNiIsInB1ciI6ImJsb2JfaWQifX0=--f4bbf90ba2fb620d571e2118be9d29d1efd2cbf1/slack-thread-link-on-tickets.png",
+  "x": "No more searching the channel for a ticket's Slack thread. When an automation rule posts a NeetoDesk ticket to Slack, the sidebar now shows a View in Slack link.\n\nTo know more, read the changelog: https://engage.neetodesk.com/changelogs/slack-thread-link-on-tickets?utm_source=x&utm_medium=social&utm_campaign=slack-thread-link-on-tickets",
+  "linkedin": "NeetoDesk tickets now link straight to their Slack thread.\n\nWhen an automation rule posts a ticket to Slack, the ticket's sidebar shows a View in Slack link and when it was posted. Teams that discuss tickets in Slack can jump to the right thread to reply or set a reminder, without searching the channel.\n\nTo know more, read the changelog: https://engage.neetodesk.com/changelogs/slack-thread-link-on-tickets?utm_source=linkedin&utm_medium=social&utm_campaign=slack-thread-link-on-tickets\n\n#BuildInPublic #SaaS #CustomerSupport",
+  "x_id": null,
+  "li_id": null,
+  "group": "new",
+  "pinned": false,
+  "held": false,
+  "fast": true,
+  "li_at": "2026-11-04T07:30:00Z",
+  "x_at": "2026-11-05T12:30:00Z"
+ },
+ {
   "key": "n6",
   "published": "2026-10-08",
   "title": "Attach files to ticket updates and drafts through the API",
@@ -88,6 +136,22 @@
   "pinned": false,
   "li_at": "2026-11-05T12:30:00Z",
   "x_at": "2026-11-06T12:30:00Z"
+ },
+ {
+  "key": "n18",
+  "title": "Search inside ticket conversations",
+  "url": "https://engage.neetodesk.com/changelogs/search-inside-ticket-conversations",
+  "image": "https://assets-cdn.neetoengage.com/rails/active_storage/blobs/proxy/eyJfcmFpbHMiOnsiZGF0YSI6ImZiZWU5NGY4LTFkMTEtNDBmMy04Mzg1LWMwOTZkNWMwMDg2MiIsInB1ciI6ImJsb2JfaWQifX0=--ee1661728fca8b5ade7a58bd9ace535f863a5a2e/search-inside-ticket-conversations.png",
+  "x": "Remember what the customer said but not the ticket number? NeetoDesk search now looks inside messages, replies and notes, and shows the matching text under each result.\n\nTo know more, read the changelog: https://engage.neetodesk.com/changelogs/search-inside-ticket-conversations?utm_source=x&utm_medium=social&utm_campaign=search-inside-ticket-conversations",
+  "linkedin": "Search in NeetoDesk now looks inside ticket conversations.\n\nIt covers customer messages, replies and notes, and shows the matching text under each result. So a ticket is easy to find when all you remember is a word the customer wrote. Open search from the sidebar or with Cmd + K.\n\nTo know more, read the changelog: https://engage.neetodesk.com/changelogs/search-inside-ticket-conversations?utm_source=linkedin&utm_medium=social&utm_campaign=search-inside-ticket-conversations\n\n#BuildInPublic #SaaS #CustomerSupport",
+  "x_id": null,
+  "li_id": null,
+  "group": "new",
+  "pinned": false,
+  "held": false,
+  "fast": true,
+  "li_at": "2026-11-06T07:30:00Z",
+  "x_at": "2026-11-07T12:30:00Z"
  },
  {
   "key": "n7",

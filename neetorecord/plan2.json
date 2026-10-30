@@ -1,5 +1,21 @@
 [
  {
+  "key": "n1",
+  "title": "Watch time and engagement analytics",
+  "url": "https://engage.neetorecord.com/changelogs/watch-time-and-engagement-analytics",
+  "image": "https://assets-cdn.neetoengage.com/rails/active_storage/blobs/proxy/eyJfcmFpbHMiOnsiZGF0YSI6ImM1YzQ0MTZlLTE1ZjMtNGRiZi1iYmY1LWVhNjg1NDkxNDVjMyIsInB1ciI6ImJsb2JfaWQifX0=--560c5a2dc1939ffa610c10698dd7dd8428945ba7/watch-time-and-engagement-analytics.png",
+  "x": "Did anyone watch your recording to the end? NeetoRecord analytics now show average view duration, engagement, and which parts viewers watched, skipped or rewatched.\n\nTo know more, read the changelog: https://engage.neetorecord.com/changelogs/watch-time-and-engagement-analytics?utm_source=x&utm_medium=social&utm_campaign=watch-time-and-engagement-analytics",
+  "linkedin": "Analytics in NeetoRecord now show whether viewers watched a recording to the end, not just how many times it played.\n\nOpen a recording's Analytics tab for average view duration, average engagement, and a chart of the parts viewers watched, skipped or rewatched. The Audience view lists signed-in viewers with a heat strip of the moments each one played.\n\nTo know more, read the changelog: https://engage.neetorecord.com/changelogs/watch-time-and-engagement-analytics?utm_source=linkedin&utm_medium=social&utm_campaign=watch-time-and-engagement-analytics\n\n#BuildInPublic #SaaS #ScreenRecording",
+  "x_id": "6ae4354e2782e7f331d62683",
+  "li_id": null,
+  "group": "new",
+  "pinned": false,
+  "held": false,
+  "fast": true,
+  "li_at": "2026-10-30T09:30:00Z",
+  "x_at": "2026-10-30T12:30:00Z"
+ },
+ {
   "key": "b1",
   "published": "2026-08-21",
   "title": "Emoji reactions on recordings",
@@ -17,6 +33,22 @@
   "li_at": "2026-11-02T09:30:00Z",
   "x_at": "2026-10-29T12:30:00Z",
   "slack_date": "2026-10-29"
+ },
+ {
+  "key": "n2",
+  "title": "Video uploads and more in the API, MCP and CLI",
+  "url": "https://engage.neetorecord.com/changelogs/video-uploads-and-more-in-the-api-mcp-and-cli",
+  "image": "https://assets-cdn.neetoengage.com/rails/active_storage/blobs/proxy/eyJfcmFpbHMiOnsiZGF0YSI6IjY0YWZkOTBiLTY1YzktNGY1Yy1iYTg3LTBlMGRkZDMzNjY0YSIsInB1ciI6ImJsb2JfaWQifX0=--b88fde399ff76a298396ea2726254de0ab1dac0d/video-uploads-and-more-in-the-api-mcp-and-cli.png",
+  "x": "Already have the video? Upload an MP4 of up to 2 GB to NeetoRecord straight from the API or CLI, no trip to the browser. AI assistants on the MCP server can do it too.\n\nTo know more, read the changelog: https://engage.neetorecord.com/changelogs/video-uploads-and-more-in-the-api-mcp-and-cli?utm_source=x&utm_medium=social&utm_campaign=video-uploads-and-more-in-the-api-mcp-and-cli",
+  "linkedin": "The NeetoRecord API can now upload your videos.\n\nSend an MP4 of up to 2 GB through the API, the CLI or an AI assistant connected through the MCP server, without opening the browser. All three now share the same recording filters and can read or generate action items, and AI assistants can manage team members.\n\nTo know more, read the changelog: https://engage.neetorecord.com/changelogs/video-uploads-and-more-in-the-api-mcp-and-cli?utm_source=linkedin&utm_medium=social&utm_campaign=video-uploads-and-more-in-the-api-mcp-and-cli\n\n#BuildInPublic #SaaS #ScreenRecording",
+  "x_id": "6ae4354f6385db216a2a1b6c",
+  "li_id": null,
+  "group": "new",
+  "pinned": false,
+  "held": false,
+  "fast": true,
+  "li_at": "2026-11-03T09:30:00Z",
+  "x_at": "2026-11-02T12:30:00Z"
  },
  {
   "key": "b2",
