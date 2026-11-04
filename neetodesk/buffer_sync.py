@@ -28,6 +28,9 @@ DELETE="""mutation($input: DeletePostInput!){ deletePost(input:$input){ __typena
 def utc(day,hour): return dt.datetime(day.year,day.month,day.day,hour,0,tzinfo=IST).astimezone(dt.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
 def parse(s): return dt.datetime.strptime(s,"%Y-%m-%dT%H:%M:%SZ").replace(tzinfo=dt.timezone.utc)
 def day_of(s): return parse(s).astimezone(IST).date()
+def next_weekday(d):   # X posts never go out on a Saturday or Sunday (fix 4 Nov 2026)
+    while d.weekday()>4: d+=dt.timedelta(days=1)
+    return d
 def save(): json.dump(plan+held,open("plan2.json","w"),indent=1,ensure_ascii=False)
 plan=json.load(open("plan2.json"))
 now=dt.datetime.now(dt.timezone.utc); today=now.astimezone(IST).date(); hour_now=now.astimezone(IST).hour
@@ -93,7 +96,7 @@ if d<=today and hour_now<PRIMARY_HOUR-1: d=today
 elif d<=today: d=today+dt.timedelta(days=1)
 for e in regular:
     while d.weekday() not in PRIMARY_DAYS: d+=dt.timedelta(days=1)
-    assign(e,utc(d,PRIMARY_HOUR),utc(d+dt.timedelta(days=1),X_HOUR))
+    assign(e,utc(d,PRIMARY_HOUR),utc(next_weekday(d+dt.timedelta(days=1)),X_HOUR))
     d+=dt.timedelta(days=1)
 # fast entries: earliest weekday with no LinkedIn post for this product
 def taken(kind): return {day_of(e[kind]) for e in plan if kind in e and e[kind][:4]!="2099"}
@@ -107,8 +110,8 @@ for e in fast:
         d+=dt.timedelta(days=1)
         while d.weekday()>4 or d in li_taken: d+=dt.timedelta(days=1)
         li_hour=PRIMARY_HOUR if d.weekday() in PRIMARY_DAYS else OVERFLOW_HOUR
-    xd=d+dt.timedelta(days=1)
-    while xd in x_taken: xd+=dt.timedelta(days=1)
+    xd=next_weekday(d+dt.timedelta(days=1))
+    while xd.weekday()>4 or xd in x_taken: xd+=dt.timedelta(days=1)
     assign(e,utc(d,li_hour),utc(xd,X_HOUR))
 for e,ch,idk,atk in edits:
     r=(gql(EDIT,{"input":{"id":e[idk],"text":e[ch],"dueAt":e[atk],"mode":"customScheduled","schedulingType":"automatic"}},ch).get("data") or {}).get("editPost") or {}
