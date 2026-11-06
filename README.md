@@ -1,5 +1,7 @@
 # Neeto social automation
 
+**Current setup: see `v2/README.md`.** Since 6 Nov 2026 the scheduled tasks run `v2/sync.py` and keep no plan files; the folders below are the old setup, kept for reference.
+
 Scripts and plan files for the changelog-to-social workflow (X and LinkedIn scheduling in Buffer) for NeetoCal, NeetoDesk, NeetoRecord, NeetoForm and NeetoChat.
 
 No keys or tokens are stored here. The scheduled tasks read Buffer keys from the Notion page "Neeto Products Buffer Key".
